@@ -1,0 +1,60 @@
+/table_extraction$ python extract_table_data.py --input_file keppel-corporation-limited-annual-report-2018.pdf -o sample.xlsx
+[0509 09:07.18 @dd.py:278]  INF  Config: 
+ {'CONFIG': {'D2CELL': 'dd/d2/cell/CASCADE_RCNN_R_50_FPN_GN.yaml',
+            'D2ITEM': 'dd/d2/item/CASCADE_RCNN_R_50_FPN_GN.yaml',
+            'D2LAYOUT': 'dd/d2/layout/CASCADE_RCNN_R_50_FPN_GN.yaml',
+            'TESS_OCR': 'dd/conf_tesseract.yaml',
+            'TPCELL': 'dd/tp/conf_frcnn_cell.yaml',
+            'TPITEM': 'dd/tp/conf_frcnn_rows.yaml',
+            'TPLAYOUT': 'dd/tp/conf_frcnn_layout.yaml'},
+ 'DEVICE': 'cpu',
+ 'LANG': None,
+ 'LIB': 'pt',
+ 'OCR': True,
+ 'SEGMENTATION': {'ASSIGNMENT_RULE': 'ioa',
+                  'FULL_TABLE_TILING': True,
+                  'IOA_THRESHOLD_COLS': 0.4,
+                  'IOA_THRESHOLD_ROWS': 0.4,
+                  'IOU_THRESHOLD_COLS': 0.001,
+                  'IOU_THRESHOLD_ROWS': 0.01,
+                  'REMOVE_IOU_THRESHOLD_COLS': 0.001,
+                  'REMOVE_IOU_THRESHOLD_ROWS': 0.001},
+ 'TAB': True,
+ 'TAB_REF': True,
+ 'WEIGHTS': {'D2CELL': 'cell/d2_model_1849999_cell_inf_only.pt',
+             'D2ITEM': 'item/d2_model_1639999_item_inf_only.pt',
+             'D2LAYOUT': 'layout/d2_model_0829999_layout_inf_only.pt',
+             'TPCELL': 'cell/model-1800000_inf_only.data-00000-of-00001',
+             'TPITEM': 'item/model-1620000_inf_only.data-00000-of-00001',
+             'TPLAYOUT': 'layout/model-800000_inf_only.data-00000-of-00001'},
+ 'WORD_MATCHING': {'IOA_THRESHOLD': 0.6,
+                   'IOU_THRESHOLD': 0.001,
+                   'PARENTAL_CATEGORIES': ['text', 'title', 'cell', 'list'],
+                   'RULE': 'ioa'}}
+[0509 09:07.20 @config.py:66]  WRN  Loading config /home/jay/.cache/deepdoctection/configs/dd/d2/layout/CASCADE_RCNN_R_50_FPN_GN.yaml with yaml.unsafe_load. Your machine may be at risk if the file contains malicious content.
+[0509 09:07.20 @detection_checkpoint.py:38]  INF  [DetectionCheckpointer] Loading from /home/jay/.cache/deepdoctection/weights/layout/d2_model_0829999_layout_inf_only.pt ...
+[0509 09:07.20 @checkpoint.py:150]  INF  [Checkpointer] Loading from /home/jay/.cache/deepdoctection/weights/layout/d2_model_0829999_layout_inf_only.pt ...
+[0509 09:07.22 @config.py:66]  WRN  Loading config /home/jay/.cache/deepdoctection/configs/dd/d2/cell/CASCADE_RCNN_R_50_FPN_GN.yaml with yaml.unsafe_load. Your machine may be at risk if the file contains malicious content.
+[0509 09:07.22 @detection_checkpoint.py:38]  INF  [DetectionCheckpointer] Loading from /home/jay/.cache/deepdoctection/weights/cell/d2_model_1849999_cell_inf_only.pt ...
+[0509 09:07.22 @checkpoint.py:150]  INF  [Checkpointer] Loading from /home/jay/.cache/deepdoctection/weights/cell/d2_model_1849999_cell_inf_only.pt ...
+[0509 09:07.23 @config.py:66]  WRN  Loading config /home/jay/.cache/deepdoctection/configs/dd/d2/item/CASCADE_RCNN_R_50_FPN_GN.yaml with yaml.unsafe_load. Your machine may be at risk if the file contains malicious content.
+[0509 09:07.24 @detection_checkpoint.py:38]  INF  [DetectionCheckpointer] Loading from /home/jay/.cache/deepdoctection/weights/item/d2_model_1639999_item_inf_only.pt ...
+[0509 09:07.24 @checkpoint.py:150]  INF  [Checkpointer] Loading from /home/jay/.cache/deepdoctection/weights/item/d2_model_1639999_item_inf_only.pt ...
+[0509 09:07.24 @doctectionpipe.py:84]  INF  Processing keppel-corporation-limited-annual-report-2018_0.pdf
+/home/jay/anaconda3/envs/table/lib/python3.9/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1634272107467/work/aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[0509 09:07.28 @context.py:126]  INF  ImageLayoutService total: 2.7832 sec.
+[0509 09:07.30 @context.py:126]  INF  SubImageLayoutService total: 1.8274 sec.
+[0509 09:07.32 @context.py:126]  INF  SubImageLayoutService total: 2.4994 sec.
+[0509 09:07.33 @context.py:126]  INF  TableSegmentationService total: 0.0208 sec.
+[0509 09:07.33 @maputils.py:89]  WRN  MappingContextManager error. Will filter annotation
+[0509 09:07.33 @maputils.py:89]  WRN  MappingContextManager error. Will filter annotation
+[0509 09:07.33 @maputils.py:89]  WRN  MappingContextManager error. Will filter annotation
+[0509 09:07.33 @maputils.py:89]  WRN  MappingContextManager error. Will filter annotation
+[0509 09:07.33 @context.py:126]  INF  TableSegmentationRefinementService total: 0.0037 sec.
+/home/jay/anaconda3/envs/table/lib/python3.9/site-packages/deepdoctection/pipe/text.py:116: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
+  if predictor_input in [b""]:
+[0509 09:07.37 @context.py:126]  INF  TextExtractionService total: 4.4503 sec.
+[0509 09:07.37 @context.py:126]  INF  MatchingService total: 0.0073 sec.
+[0509 09:07.37 @context.py:126]  INF  TextOrderService total: 0.0825 sec.
+success !
